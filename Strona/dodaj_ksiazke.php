@@ -1,11 +1,21 @@
 ﻿<?php
+  if (isset($_COOKIE["sid"]))
+    session_id($_COOKIE["sid"]);
   session_start();
+  if (!isset($_SESSION["uid"])){
+    ob_start(); 
+    $url = 'login.php'; 
+    while (ob_get_status()) {
+        ob_end_clean();
+    }
+    header( "Location: $url" );
+  }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Rejestracja</title>
+  <title>Dodawanie książki</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -30,46 +40,39 @@
   </div>
 </nav>
 <div class="container">
-  <form name="register" method="post" action = "add_user.php" autocomplete="on" class="form-horizontal">
+  <form name="register" method="post" action = "add_book.php" autocomplete="on" class="form-horizontal">
 
     <div class="form-group">
-      <label class="control-label col-sm-4" for="email">Email:</label>
+      <label class="control-label col-sm-4" for="title">Tytuł:</label>
       <div class="col-sm-4">
-        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+        <input type="txt" class="form-control" id="title" placeholder="Enter title" name="title">
       </div>
     </div>
 
     <div class="form-group">
-      <label class="control-label col-sm-4" for="user">Username:</label>
+      <label class="control-label col-sm-4" for="author">Autor:</label>
       <div class="col-sm-4">          
-        <input type="txt" class="form-control" id="user" placeholder="Enter Username" name="user">
+        <input type="txt" class="form-control" id="author" placeholder="Enter Author" name="author">
       </div>
     </div>
 
     <div class="form-group">
-      <label class="control-label col-sm-4" for="pwd">Password:</label>
+      <label class="control-label col-sm-4" for="isbn">ISBN:</label>
       <div class="col-sm-4">          
-        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+        <input type="txt" class="form-control" id="isbn" placeholder="ISBN" name="isbn">
       </div>
     </div>
 
     <div class="form-group">
-      <label class="control-label col-sm-4" for="fname">First Name:</label>
+      <label class="control-label col-sm-4" for="decription">Opis:</label>
       <div class="col-sm-4">          
-        <input type="txt" class="form-control" id="fname" placeholder="First Name" name="fname">
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label class="control-label col-sm-4" for="lname">Last Name:</label>
-      <div class="col-sm-4">          
-        <input type="txt" class="form-control" id="lname" placeholder="Last Name" name="lname">
+        <textarea  rows = "4" cols = "36" maxlength="200" class="form-control" id="description" placeholder="Description" name="description"></textarea>
       </div>
     </div>
     
     <div class="form-group">        
       <div class="col-sm-offset-4 col-sm-10">
-        <button type="submit" class="btn btn-default">Zarejestruj się</button>
+        <button type="submit" class="btn btn-default">Dodaj</button>
       </div>
     </div>
   </form>

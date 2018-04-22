@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿<?php
+	if (isset($_COOKIE["sid"]))
+		session_id($_COOKIE["sid"]);
+	session_start();
+?>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <title>BookSerch</title>

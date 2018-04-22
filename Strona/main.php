@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿<?php
+  if (isset($_COOKIE["sid"]))
+    session_id($_COOKIE["sid"]);
+  session_start();
+?>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Main</title>
@@ -17,7 +23,7 @@
     <ul class="nav navbar-nav">
       <li><a href="przegladaj_ksiazke.php">Przeglądaj książki</a></li>
       <li><a href="#">Moje katalogii</a></li>
-      <li><a href="#">Dodaj książkę</a></li>
+      <li><a href="dodaj_ksiazke.php">Dodaj książkę</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Zaloguj się</a></li>
