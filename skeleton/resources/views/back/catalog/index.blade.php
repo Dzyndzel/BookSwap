@@ -1,9 +1,9 @@
 @extends('back.layout')
 
-@section('title', trans('dictionary.books'))
+@section('title', trans('dictionary.catalogs'))
 
 @push('page-actions')
-<a href="{{ route('back.books.create') }}" class="btn btn-fill btn-primary">@lang('messages.add-new')</a>
+<a href="{{ route('back.catalog.create') }}" class="btn btn-fill btn-primary">@lang('messages.add-new')</a>
 @endpush
 
 @section('content')
@@ -14,30 +14,30 @@
                     <table class="table table-hover">
                         <thead>
                         <tr>
-                            <th>ISBN</th>
                             <th>@lang('dictionary.title')</th>
+                            <th>@lang('dictionary.description')</th>
                             <th width="15%">&nbsp;</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @forelse($books as $book)
+                        @forelse($catalogs as $catalog)
                             <tr>
-                                <td>{{ $book->isbn }}</td>
-                                <td>{{ $book->title }}</td>
+                                <td>{{ $catalog->name }}</td>
+                                <td>{{ substr($catalog->description,0,20) }}</td>
                                 <td class="td-actions">
-                                    {!! Form::open(['method' => 'get', 'route' => ['back.books.show', $book->id]]) !!}
+                                    {!! Form::open(['method' => 'get', 'route' => ['back.catalog.show', $catalog->id]]) !!}
                                     <button class="btn btn-default btn-xs">
                                         <i class="fa fa-search-plus"></i>
                                     </button>
                                     {!! Form::close() !!}
-                                    @if( Auth::user() && Auth::user()->id  == $book->user_id ):
-                                    {!! Form::open(['method' => 'get', 'route' => ['back.books.edit', $book->id]]) !!}
+                                    @if( Auth::user() && Auth::user()->id  == $catalog->user_id ):
+                                    {!! Form::open(['method' => 'get', 'route' => ['back.catalog.edit', $catalog->id]]) !!}
                                     <button class="btn btn-default btn-xs">
                                         <i class="fa fa-pencil"></i>
                                     </button>
                                     {!! Form::close() !!}
 
-                                    {!! Form::open(['method' => 'delete', 'route' => ['back.books.destroy', $book->id], 'data-confirm' => trans('messages.confirm'), 'data-title' => trans('messages.confirm-title'), 'data-type' => 'warning']) !!}
+                                    {!! Form::open(['method' => 'delete', 'route' => ['back.catalog.destroy', $catalog->id], 'data-confirm' => trans('messages.confirm'), 'data-title' => trans('messages.confirm-title'), 'data-type' => 'warning']) !!}
                                     <button class="btn btn-danger btn-xs">
                                         <i class="fa fa-trash"></i>
                                     </button>
@@ -53,7 +53,7 @@
                         </tbody>
                     </table>
 
-                    {{--{{ $books->links() }}--}}
+                    {{--{{ $catalogs->links() }}--}}
                 </div>
             </div>
         </div>

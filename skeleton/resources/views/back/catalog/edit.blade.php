@@ -1,9 +1,9 @@
 @extends('back.layout')
 
-@section('title', trans('dictionary.books'))
+@section('title', trans('dictionary.catalog'))
 
 @push('page-actions')
-    <a href="{{ route('back.books.index') }}" class="btn btn-default">@lang('dictionary.back')</a>
+    <a href="{{ route('back.catalog.index') }}" class="btn btn-default">@lang('dictionary.back')</a>
 @endpush
 
 @section('content')
@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="content">
-                    {!! Form::open(['method' => 'put', 'route' => ['back.books.update', $book->id], 'files' => true]) !!}
+                    {!! Form::open(['method' => 'put', 'route' => ['back.catalog.update', $book->id], 'files' => true]) !!}
 
                     <div class="row">
                         <div class="col-md-12">
