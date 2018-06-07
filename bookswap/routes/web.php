@@ -13,7 +13,10 @@
 Route::get('main', 'PagesController@main');
 Route::get('contact','PagesController@contact');
 Route::get('about','PagesController@about');
-Route::get('register','PagesController@register');
 Route::get('login','PagesController@login');
 Route::get('privacyPolicy','PagesController@privacyPolicy');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
