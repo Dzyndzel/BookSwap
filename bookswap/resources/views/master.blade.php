@@ -20,10 +20,16 @@
             <li><a href="#">Moje katalogii</a></li>
             <li><a href="{{ url('books/create') }}">Dodaj książkę</a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href={{ url('login') }}><span class="glyphicon glyphicon-log-in"></span> Zaloguj się</a></li>
-            <li><a href={{ url('register') }}><span class="glyphicon glyphicon-user"></span> Zarejestruj się</a></li>
-        </ul>
+        @if (!Auth::check())
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href={{ url('login') }}><span class="glyphicon glyphicon-log-in"></span> Zaloguj się</a></li>
+                <li><a href={{ url('register') }}><span class="glyphicon glyphicon-user"></span> Zarejestruj się</a></li>
+            </ul>
+        @else
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href={{ url('logout') }}><span class="glyphicon glyphicon-log-in"></span> Wyloguj się</a></li>
+            </ul>
+        @endif
     </div>
 </nav>
 <!--NavBar-->

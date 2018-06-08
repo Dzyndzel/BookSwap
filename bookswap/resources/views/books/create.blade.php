@@ -1,6 +1,7 @@
 @extends('master')
 
 @section('content')
+    @if (Auth::check())
     <div class="container">
     {!! Form::open(['url' => 'books']) !!}
 
@@ -30,4 +31,7 @@
 
     {!! Form::close() !!}
     </div>
+    @else
+        <h1>Zaloguj się!</h1>
+    @endif
 @endsection

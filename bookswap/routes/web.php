@@ -22,5 +22,6 @@ Route::post('books','BooksController@store');
 
 
 Auth::routes();
+Route::get('logout','PagesController@logout');
 
 Route::get('/home', 'HomeController@index')->name('home');

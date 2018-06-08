@@ -27,6 +27,10 @@ class PagesController extends Controller
     {
         return view('pages.login');
     }
+    public function logout()
+    {
+        return view('auth.logout');
+    }
 
     public function privacyPolicy()
     {
