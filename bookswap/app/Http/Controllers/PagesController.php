@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
@@ -32,8 +31,10 @@ class PagesController extends Controller
         return view('auth.logout');
     }
 
+
     public function privacyPolicy()
     {
+
         return view('pages.privacyPolicy');
     }
 

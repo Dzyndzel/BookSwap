@@ -15,8 +15,7 @@
         </div>
     </div>
 
-        <div class="container text-center text-md-left">
-            <img class="img-responsive" src=src="{{ URL::to('/assets/img/awesome.jpg') }} alt="WeAre">
-        </div>
-
+    <div class="container text-center text-md-left">
+        <img class="img-responsive" src={{ URL::to('/images/awesome.png') }} alt="WeAre">
+    </div>
 @stop

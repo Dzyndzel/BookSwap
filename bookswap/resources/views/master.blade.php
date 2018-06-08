@@ -26,7 +26,8 @@
             </ul>
         @else
             <ul class="nav navbar-nav navbar-right">
-                <li><a href={{ url('logout') }}><span class="glyphicon glyphicon-log-in"></span> Wyloguj się</a></li>
+                <li><a href={{ url('offers') }}>Oferty</a></li>
+                <li><a href={{ url('logout') }}><span class="glyphicon glyphicon-log-out"></span> Wyloguj się</a></li>
             </ul>
         @endif
     </div>

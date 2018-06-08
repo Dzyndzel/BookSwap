@@ -11,8 +11,12 @@
 |
 */
 Route::get('main', 'PagesController@main');
-    Route::post('main', 'BooksController@swapped');
+Route::post('main', 'BooksController@swapped');
 Route::get('/', 'PagesController@main');
+Route::get('offers', 'OffersController@offers');
+Route::get('offers/destroy/{id}', 'OffersController@destroy');
+Route::get('offers/accept/{id}', 'OffersController@accept');
+Route::get('offers/{id}', 'OffersController@offer');
 Route::get('contact','PagesController@contact');
 Route::get('about','PagesController@about');
 Route::get('login','PagesController@login');
