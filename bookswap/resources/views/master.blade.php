@@ -18,7 +18,7 @@
         <ul class="nav navbar-nav">
             <li><a href="przegladaj_ksiazke.html">Przeglądaj książki</a></li>
             <li><a href="#">Moje katalogii</a></li>
-            <li><a href="#">Dodaj książkę</a></li>
+            <li><a href="{{ url('books/create') }}">Dodaj książkę</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href={{ url('login') }}><span class="glyphicon glyphicon-log-in"></span> Zaloguj się</a></li>

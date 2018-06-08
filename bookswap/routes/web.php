@@ -15,6 +15,10 @@ Route::get('contact','PagesController@contact');
 Route::get('about','PagesController@about');
 Route::get('login','PagesController@login');
 Route::get('privacyPolicy','PagesController@privacyPolicy');
+Route::get('books','BooksController@index');
+Route::get('books/create','BooksController@create');
+Route::get('books/{id}','BooksController@show');
+Route::post('books','BooksController@store');
 
 
 Auth::routes();
