@@ -45,4 +45,16 @@ class BooksController extends Controller
         return redirect('books');
     }
 
+    public function swap($id){
+
+        $books = Book::all();
+        return view('books.swap')->with('books', $books, 'id', $id);
+    }
+
+    public function swapped(){
+
+        $input = Request::all();
+        return $input;
+    }
+
 }

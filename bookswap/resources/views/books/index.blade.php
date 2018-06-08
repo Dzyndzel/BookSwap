@@ -11,6 +11,8 @@
         <div class="body">{{ $book->description }}</div>
         @if( Auth::id() == $book->user_id)
             {!! link_to_action('BooksController@destroy','Usuń',[$book->id]) !!}
+        @else
+            {!! link_to_action('BooksController@swap','Wymień się',[$book->user_id]) !!}
         @endif
     @endforeach
 @endsection

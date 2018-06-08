@@ -11,11 +11,14 @@
 |
 */
 Route::get('main', 'PagesController@main');
+    Route::post('main', 'BooksController@swapped');
+Route::get('/', 'PagesController@main');
 Route::get('contact','PagesController@contact');
 Route::get('about','PagesController@about');
 Route::get('login','PagesController@login');
 Route::get('privacyPolicy','PagesController@privacyPolicy');
 Route::get('books','BooksController@index');
+Route::get('books/swap/{id}','BooksController@swap');
 Route::get('books/create','BooksController@create');
 Route::get('books/{id}','BooksController@show');
 Route::get('books/destroy/{id}','BooksController@destroy');
