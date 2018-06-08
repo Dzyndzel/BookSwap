@@ -16,8 +16,7 @@
             <a class="navbar-brand" href={{ url('main') }}>BookSwap</a>
         </div>
         <ul class="nav navbar-nav">
-            <li><a href="przegladaj_ksiazke.html">Przeglądaj książki</a></li>
-            <li><a href="#">Moje katalogii</a></li>
+            <li><a href="{{ url('books') }}">Przeglądaj książki</a></li>
             <li><a href="{{ url('books/create') }}">Dodaj książkę</a></li>
         </ul>
         @if (!Auth::check())

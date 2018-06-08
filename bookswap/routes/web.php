@@ -18,6 +18,7 @@ Route::get('privacyPolicy','PagesController@privacyPolicy');
 Route::get('books','BooksController@index');
 Route::get('books/create','BooksController@create');
 Route::get('books/{id}','BooksController@show');
+Route::get('books/destroy/{id}','BooksController@destroy');
 Route::post('books','BooksController@store');
 
 

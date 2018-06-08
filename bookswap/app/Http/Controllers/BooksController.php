@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Book;
 use DummyFullModelClass;
 use App\lain;
+use Illuminate\Support\Facades\Auth;
 use Request;
 
 class BooksController extends Controller
@@ -28,11 +29,20 @@ class BooksController extends Controller
 
     public function store(){
         $input = Request::all();
-        $input['user_id'] = 1;
+        $input['user_id'] = Auth::id();
         $input['view_count'] = 0;
 
         Book::create($input);
 
         return redirect('books');
     }
+
+    public function destroy($id){
+        $book = Book::findOrFail($id);
+        if(Auth::id() == $book->user_id){
+            Book::where('id', $id)->delete();
+        }
+        return redirect('books');
+    }
+
 }
