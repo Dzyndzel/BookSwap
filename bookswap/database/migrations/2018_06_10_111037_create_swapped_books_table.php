@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSwapOffersTable extends Migration
+class CreateSwappedBooksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateSwapOffersTable extends Migration
      */
     public function up()
     {
-        Schema::create('swap_offers', function (Blueprint $table) {
+        Schema::create('swapped_books', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('fst_user');
-            $table->integer('scd_user');
-            $table->text('msg');
+            $table->integer('book_id');
+            $table->integer('swap_history_id');
+            $table->integer('owner');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateSwapOffersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('swap_offers');
+        Schema::dropIfExists('swapped_books');
     }
 }

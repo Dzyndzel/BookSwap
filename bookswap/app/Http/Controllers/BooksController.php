@@ -71,7 +71,7 @@ class BooksController extends Controller
             $so_tmp->delete();
         }
 
-        $so = new Swap_offer(array("fst_user"=>$fst_user,"scd_user"=>$scd_user));
+        $so = new Swap_offer(array("fst_user"=>$fst_user,"scd_user"=>$scd_user,"msg"=>$input['msg']));
         $so->save();
 
         foreach ($input['first'] as $bk){

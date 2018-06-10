@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Swap_offer extends Model
+class Swapped_books extends Model
 {
     protected $fillable = [
-        'fst_user','scd_user','msg'
+        'book_id', 'swap_history_id', 'owner',
     ];
 }

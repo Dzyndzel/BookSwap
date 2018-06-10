@@ -29,6 +29,10 @@
                 </div>
             </div>
             <div class="row">
+                <div class="form-group">
+                    {!! Form::label('msg', 'Wiadomość:') !!}
+                    {!! Form::textarea('msg', null, ['class' => 'form-control']) !!}
+                </div>
                 {!! Form::submit('Wymień', ['class' => 'btn btn-primary form-control']) !!}
             </div>
         </div>

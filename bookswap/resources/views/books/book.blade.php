@@ -16,9 +16,9 @@
         <p>Wyświetlono: {{ $book->view_count }} razy</p>
 
     @if( Auth::id() == $book->user_id)
-        {!! link_to_action('BooksController@destroy','Usuń',[$book->id]) !!}
+        <span class="glyphicon glyphicon-trash"></span>{!! link_to_action('BooksController@destroy',' Usuń',[$book->id]) !!}
     @else
-        {!! link_to_action('BooksController@swap','Wymień się',[$book->user_id]) !!}
+        <span class="glyphicon glyphicon-retweet"></span>{!! link_to_action('BooksController@swap',' Wymień się',[$book->user_id]) !!}
     @endif
     </div>
 @endsection

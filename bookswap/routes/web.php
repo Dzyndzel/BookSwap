@@ -28,6 +28,8 @@ Route::get('books/{id}','BooksController@show');
 Route::get('books/destroy/{id}','BooksController@destroy');
 Route::post('books','BooksController@store');
 Route::post('/send', 'EmailController@send');
+Route::get('/history', 'OffersController@history');
+Route::get('/history/{id}', 'OffersController@history_id');
 
 Auth::routes();
 Route::get('logout','PagesController@logout');
