@@ -6,6 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
+                    <p>Wybierz Twoje książki do propozycji</p>
                     @foreach($books as $book)
                         @if($book->user_id == Auth::id())
                             <h2>
@@ -16,6 +17,7 @@
                     @endforeach
                 </div>
                 <div class="col-md-6">
+                    <p>Wybierz książki, które Ciebie interesują</p>
                     @foreach($books as $book)
                         @if($book->user_id == $id)
                             <h2>

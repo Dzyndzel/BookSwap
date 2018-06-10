@@ -27,7 +27,7 @@ Route::get('books/create','BooksController@create');
 Route::get('books/{id}','BooksController@show');
 Route::get('books/destroy/{id}','BooksController@destroy');
 Route::post('books','BooksController@store');
-
+Route::post('/send', 'EmailController@send');
 
 Auth::routes();
 Route::get('logout','PagesController@logout');

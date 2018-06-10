@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Swap_book;
 use App\Swap_offer;
 use App\Book;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,7 +14,14 @@ class OffersController extends Controller
     public function offers()
     {
         $offers = Swap_offer::where('scd_user', Auth::id())->get();
-        return view('offers.offers') -> with ('offers', $offers);
+        $users = [];
+        foreach ($offers as $offer){
+            array_push($users, (User::where('id','=', $offer->fst_user))->first());
+        }
+        return view('offers.offers') -> with ([
+            'offers' => $offers,
+            'users' => $users
+        ]);
     }
     public function offer($id)
     {
